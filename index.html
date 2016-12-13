@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>居家環境風險視覺化</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity=
+        "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCO-pUGf5JuLoj0EIad1MJo5-9YfDyGQaI"></script>
+
+        <!-- Include this library for mobile touch support  -->
+        <script src="jquery.ui.touch-punch.min.js"></script>
+        <script src="leafletembed.js"></script>
+        <script src="SliderControl.js"></script>
+        
+    </head>
+    <body>
+
+        <style>
+            html,body{
+                height: 100%;
+                width: 100%; 
+            }
+            #content{
+                height: 100%;
+            }
+            #map { 
+                height:85%;
+                width:70%;
+                float: left;
+                margin-left: 2%;
+            } 
+            #description{
+                float: left;
+                height:600px;
+                width:25%;
+                padding-left: 2%;
+            }
+            .RuleA{
+                stroke-width:0.8;
+                  stroke:#d22525;
+                stroke-opacity:0.5;
+                fill:#d22525;
+                fill-opacity:0.025;
+            }
+            .RuleB{
+                stroke-width:0.8;
+                stroke:#d68a18;
+                stroke-opacity:0.5;
+                fill:#d68a18;
+                fill-opacity:0.02;
+            }
+        </style>
+        <nav class="navbar navbar-default navbar-static-top">
+            <span class="navbar-brand" href="#">居家環境風險視覺化</span>
+        </nav>
+        
+        
+        <div id="content">
+            <p id="form"></p>
+            <img src="img/loading.svg" style="width:100%;height:100%;" id="loading">    
+            <div id="map"></div>
+            <div id="description">
+              
+               <div class="panel panel-info">
+                  <div class="panel-heading">
+                    天氣狀況
+                  </div>
+                  <div class="panel-body">
+                           氣溫：24.4&deg&nbsp;&nbsp;累積雨量：2<font size="1">mm</font>&nbsp;&nbsp;溼度：84% </br>
+                           晴天無雨，天氣舒適。
+                   </div>
+               </div>
+               <div class="panel panel-success">
+                  <div class="panel-heading">
+                    空氣品質
+                  </div>
+                  <div class="panel-body">
+                           PM2.5濃度 26 μg/m<sup>3</sup> </br>
+                           可以正常戶外活動。
+                   </div>
+               </div>
+          
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                  異常行為
+                  </div>
+                  <div class="panel-body">
+                      在過去十分鐘內，有人把門(door-kitchen)打開是不被預期的。
+               </div>     
+            </div>
+        </div>
+        <!--
+        <div>
+
+        </div>
+        -->
+        <script>
+        var form = document.getElementById("form");
+        var loading = document.getElementById("loading");
+        init();
+        
+        </script>
+    </body>
+</html>
